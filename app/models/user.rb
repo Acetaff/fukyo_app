@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many  :fukyos
+
   validates :fukyo_sya, presence: true
   validates :profile,   presence: true
 end
