@@ -1,0 +1,11 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @fukyo, local: true) do |f| %>
+      <%= f.text_field :title, placeholder: "お題をどうぞ（必須）" %>
+      <%= f.text_area :text, placeholder: "本文はこちら（必須）" %>
+      <%= f.text_field :image, placeholder: "お題に関するURL（任意）" %>
+      <%= f.submit "SEND" %>
+    <% end %>
+  </div>
+</div>
