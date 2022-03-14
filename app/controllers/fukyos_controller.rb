@@ -7,4 +7,7 @@ class FukyosController < ApplicationController
     @fukyo = Fukyo.new
   end
 
+  def create
+  end
+
 end
