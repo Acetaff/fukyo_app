@@ -3,5 +3,4 @@ class Fukyo < ApplicationRecord
 
   validates  :title,  presence: true
   validates  :f_text, presence: true
-  validates  :f_url,  presence: true
 end
