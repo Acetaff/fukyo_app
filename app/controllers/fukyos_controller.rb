@@ -18,7 +18,7 @@ class FukyosController < ApplicationController
 
   private
   def fukyo_params
-    params.require(:fukyo).permit(:title, :f_text, :f_url)
+    params.require(:fukyo).permit(:title, :f_text, :f_url).merge(user_id: current_user.id)
   end
 
 end
