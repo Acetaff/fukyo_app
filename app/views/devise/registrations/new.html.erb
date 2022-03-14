@@ -1,8 +1,18 @@
 <div class="contents row">
   <div class="container">
-    <h2>Sign up</h2>
+    <h2>-Sign Up-</h2>
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :fukyo_say %><br />※ここでのあなたの名前です
+        <%= f.text_field :fukyo_say, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :profile %><br />※簡単な自己紹介をどうぞ
+        <%= f.text_area :profile, autofocus: true %>
+      </div>
 
       <div class="field">
         <%= f.label :email %><br />
