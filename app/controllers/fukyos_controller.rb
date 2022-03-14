@@ -1,6 +1,7 @@
 class FukyosController < ApplicationController
 
   def index 
+    @fukyos = Fukyo.includes(:user).order("created_at DESC")
   end
   
   def new
