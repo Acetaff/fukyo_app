@@ -1,0 +1,2 @@
+class Fukyo < ApplicationRecord
+end
