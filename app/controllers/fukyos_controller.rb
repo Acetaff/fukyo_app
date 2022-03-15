@@ -26,6 +26,12 @@ class FukyosController < ApplicationController
   end
 
   def update
+    @fukyo = Fukyo.find(params[:id])
+    if @fukyo.update(fukyo_params)
+      redirect_to fukyo_path(@fukyo.id)
+    else
+      render :edit
+    end
   end
 
   private
