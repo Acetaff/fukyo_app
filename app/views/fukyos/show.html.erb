@@ -8,14 +8,14 @@
           <%= link_to '>編集する', edit_fukyo_path(@fukyo.id), method: :get %>
         </li>
         <li>
-          <%= link_to '>削除する', "#", method: :delete %>
+          <%= link_to '>削除する', fukyo_path(@fukyo.id), method: :delete %>
         </li>
       </ul>
       <% end %>
     </div>
-    <p>＃お題： <%= @fukyo.title %></p>
-    <span class="name">-紹介文： <%= @fukyo.f_text %>
+    <p>＃： <%= @fukyo.title %></p>
+    <span class="name">＃： <%= @fukyo.f_text %>
     </span>
-    <div>-関連URL： <%= @fukyo.f_url%></div>
+    <div>＃： <%= @fukyo.f_url%></div>
   </div>
 </div>

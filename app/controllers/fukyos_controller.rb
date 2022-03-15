@@ -1,4 +1,7 @@
 class FukyosController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_fukyo, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:edit, :destroy]
 
   def index 
     @fukyos = Fukyo.includes(:user).order("created_at DESC")
@@ -18,15 +21,12 @@ class FukyosController < ApplicationController
   end
 
   def show
-    @fukyo = Fukyo.find(params[:id])
   end
 
   def edit
-    @fukyo = Fukyo.find(params[:id])
   end
 
   def update
-    @fukyo = Fukyo.find(params[:id])
     if @fukyo.update(fukyo_params)
       redirect_to fukyo_path(@fukyo.id)
     else
@@ -34,10 +34,27 @@ class FukyosController < ApplicationController
     end
   end
 
+  def destroy
+    fukyo = Fukyo.find(params[:id])
+    fukyo.destroy
+    redirect_to root_path
+  end
+
   private
   
   def fukyo_params
     params.require(:fukyo).permit(:title, :f_text, :f_url, :image).merge(user_id: current_user.id)
+  end
+
+  def set_fukyo
+    @fukyo = Fukyo.find(params[:id])
+  end
+
+  def move_to_index 
+    @fukyo = Fukyo.find(params[:id])
+    unless current_user == @fukyo.user
+      redirect_to root_path
+    end
   end
 
 end
