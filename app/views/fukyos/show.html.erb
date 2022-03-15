@@ -8,7 +8,7 @@
           <%= link_to '>編集する', edit_fukyo_path(@fukyo.id), method: :get %>
         </li>
         <li>
-          <%= link_to '>削除する', "#", method: :delete %>
+          <%= link_to '>削除する', fukyo_path(@fukyo.id), method: :delete %>
         </li>
       </ul>
       <% end %>
