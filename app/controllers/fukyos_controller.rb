@@ -17,6 +17,10 @@ class FukyosController < ApplicationController
     end
   end
 
+  def show
+    @fukyo = Fukyo.find(params[:id])
+  end
+
   private
   
   def fukyo_params
