@@ -34,6 +34,9 @@ class FukyosController < ApplicationController
     end
   end
 
+  def delete
+  end
+
   private
   
   def fukyo_params
