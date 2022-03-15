@@ -34,7 +34,10 @@ class FukyosController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    fukyo = Fukyo.find(params[:id])
+    fukyo.destroy
+    redirect_to root_path
   end
 
   private
