@@ -1,4 +1,5 @@
 class FukyosController < ApplicationController
+  before_action :set_fukyo, only: [:show, :edit, :update]
 
   def index 
     @fukyos = Fukyo.includes(:user).order("created_at DESC")
@@ -18,15 +19,12 @@ class FukyosController < ApplicationController
   end
 
   def show
-    @fukyo = Fukyo.find(params[:id])
   end
 
   def edit
-    @fukyo = Fukyo.find(params[:id])
   end
 
   def update
-    @fukyo = Fukyo.find(params[:id])
     if @fukyo.update(fukyo_params)
       redirect_to fukyo_path(@fukyo.id)
     else
@@ -44,6 +42,10 @@ class FukyosController < ApplicationController
   
   def fukyo_params
     params.require(:fukyo).permit(:title, :f_text, :f_url, :image).merge(user_id: current_user.id)
+  end
+
+  def set_fukyo
+    @fukyo = Fukyo.find(params[:id])
   end
 
 end
