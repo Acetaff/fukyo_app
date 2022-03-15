@@ -1,11 +1,9 @@
 <div class="contents row">
     <% @fukyos.each do |fukyo| %>
-    <div class="content_post" style="background-image: url(<%= "#" %>);">
-      <p><%= fukyo.title %></p>
+    <%= image_tag fukyo.image.variant(resize: '500x500') %>
+      <h1><%= fukyo.title %></h1>
       <span class="name">
-        <%= fukyo.f_text %>
-        <%= fukyo.f_url%>
+        <div><%= fukyo.f_text %></div>
       </span>
-    </div>
   <% end %>
 </div>
