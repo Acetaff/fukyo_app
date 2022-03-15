@@ -1,0 +1,20 @@
+<div class="contents row">
+  <%= image_tag @fukyo.image.variant(resize: '1000x1000') %>
+    <div class="more">
+      <span><%= image_tag 'arrow_top.png' %></span>
+      <% if user_signed_in? && current_user.id == @fukyo.user_id %>
+      <ul class="more_list">
+        <li>
+          <%= link_to '編集', "#", method: :get %>
+        </li>
+        <li>
+          <%= link_to '削除', "#", method: :delete %>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+    <h1><%= @fukyo.title %></h1>
+    <span class="name"><%= @fukyo.f_text %>
+    </span>
+  </div>
+</div>
