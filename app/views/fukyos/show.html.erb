@@ -5,16 +5,17 @@
       <% if user_signed_in? && current_user.id == @fukyo.user_id %>
       <ul class="more_list">
         <li>
-          <%= link_to '編集', "#", method: :get %>
+          <%= link_to '>編集する', "#", method: :get %>
         </li>
         <li>
-          <%= link_to '削除', "#", method: :delete %>
+          <%= link_to '>削除する', "#", method: :delete %>
         </li>
       </ul>
       <% end %>
     </div>
-    <h1><%= @fukyo.title %></h1>
-    <span class="name"><%= @fukyo.f_text %>
+    <p>＃お題： <%= @fukyo.title %></p>
+    <span class="name">-紹介文： <%= @fukyo.f_text %>
     </span>
+    <div>-関連URL： <%= @fukyo.f_url%></div>
   </div>
 </div>
