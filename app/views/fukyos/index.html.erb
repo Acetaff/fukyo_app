@@ -1,2 +1,9 @@
 <div class="contents row">
+    <% @fukyos.each do |fukyo| %>
+    <%= image_tag fukyo.image.variant(resize: '500x500') %>
+      <h1><%= fukyo.title %></h1>
+      <span class="name">
+        <div><%= fukyo.f_text %></div>
+      </span>
+  <% end %>
 </div>
