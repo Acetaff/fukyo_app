@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FukyoApp</title>
+    <title>FUKYO app</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,7 +12,7 @@
   <body>
       <header class="header">
       <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">FukyoApp</a></h1>
+        <h1 class="grid-6"><a href="/">FUKYO app</a></h1>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <span><%= current_user.fukyo_sya %>
@@ -23,7 +23,7 @@
                 </li>
               </ul>
             </span>
-            <%= link_to "投稿する", new_fukyo_path, class: "post" %>
+            <%= link_to "FUKYO", new_fukyo_path, class: "post" %>
           </div>
         <% else %>
           <div class="grid-6">
