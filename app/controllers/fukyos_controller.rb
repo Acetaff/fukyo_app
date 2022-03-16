@@ -3,9 +3,8 @@ class FukyosController < ApplicationController
   before_action :set_fukyo, only: [:show, :edit, :update]
   before_action :move_to_index, only: [:edit, :destroy]
 
-  def index 
+  def index
     @fukyos = Fukyo.includes(:user).order("created_at DESC")
-    @favorite_count = Favorite.where(fukyo_id: @fukyos).count
   end
   
   def new
