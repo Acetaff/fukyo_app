@@ -2,6 +2,7 @@
   <%= image_tag @fukyo.image.variant(resize: '1000x1000') %>
     
     <div class="more">
+    <% if user_signed_in? %>
       <span><%= image_tag 'arrow_top.png' %></span>
       <% if @fukyo.favorited?(current_user) %>
         <%= link_to fukyo_favorite_path(@fukyo.id), method: :delete do %>
@@ -14,7 +15,7 @@
       <% end %>
       <%= @favorite_count %>
 
-      <% if user_signed_in? && current_user.id == @fukyo.user_id %>
+      <% if current_user.id == @fukyo.user_id %>
       <ul class="more_list">
         <li>
           <%= link_to '>編集する', edit_fukyo_path(@fukyo.id), method: :get %>
@@ -25,12 +26,13 @@
       </ul>
       <% end %>
     </div>
+    <% end %>
 
+    <p><strong><%= link_to @fukyo.user.fukyo_sya, "/user/#{@fukyo.user_id}" %> </strong></p>
     <p>＃お題： <%= @fukyo.title %></p>
     <span class="name">＃紹介： <%= @fukyo.f_text %>
     </span>
     <div>＃URL： <%= @fukyo.f_url%></div>
-  </div>
     <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@fukyo, @comment], local: true) do |f| %>
@@ -40,8 +42,8 @@
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
-        <div class="comments">
-      <h4>＜コメント一覧＞</h4>
+    <div class="comments">
+      <h4>- コメント一覧 -</h4>
       <% @comments.each do |comment| %>
         <p>
           <strong><%= link_to comment.user.fukyo_sya, "/users/#{comment.user_id}" %>：</strong>

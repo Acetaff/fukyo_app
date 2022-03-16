@@ -3,10 +3,10 @@
       <%= link_to fukyo_path(fukyo.id) do %>
         <%= image_tag fukyo.image.variant(resize: '500x500') %>
       <% end %>
-
-        <h1><%= fukyo.title %></h1>
+        <p><strong><%= link_to fukyo.user.fukyo_sya, "#" %></strong></p>
+        <div>＃お題：<%= fukyo.title %></div>
         <span class="name">
-          <div><%= fukyo.f_text %></div>
+          <div>＃紹介：<%= fukyo.f_text %></div>
         </span>
   <% end %>
 </div>
