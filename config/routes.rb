@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "fukyos#index"
-  resources :fukyos
+  resources :fukyos do
+    resources :comments, only: :create
+  end
 end

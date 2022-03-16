@@ -8,7 +8,7 @@ class FukyosController < ApplicationController
   end
   
   def new
-    @fukyo = Fukyo.new
+  @fukyo = Fukyo.new
   end
 
   def create
@@ -21,6 +21,8 @@ class FukyosController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @fukyo.comments.includes(:user)
   end
 
   def edit
