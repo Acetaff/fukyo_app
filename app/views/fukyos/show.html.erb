@@ -32,7 +32,7 @@
       <% @comments.each do |comment| %>
         <p>
           <strong><%= link_to comment.user.fukyo_sya, "/users/#{comment.user_id}" %>：</strong>
-          <%= comment.text %>
+          <%= comment.c_text %>
         </p>
       <% end %>
     </div>

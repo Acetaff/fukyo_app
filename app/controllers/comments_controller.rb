@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.create(comment_params)
-    if @comment.save
-    redirect_to "/fukyos/#{@comment.fukyo.id}"
+    comment = Comment.create(comment_params)
+    redirect_to "/fukyos/#{comment.fukyo.id}"
   end
 
   private
