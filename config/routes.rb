@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: "fukyos#index"
   resources :fukyos do
     resources :comments, only: :create
+    resources :favorites, only: [:create, :destroy]
   end
 end
