@@ -7,4 +7,8 @@ class Fukyo < ApplicationRecord
   validates :title,  presence: true
   validates :f_text, presence: true
   validates :image,  presence: true
+
+  def favorited?(user)
+    favorites.where(user_id: user.id).exists?
+ end
 end
