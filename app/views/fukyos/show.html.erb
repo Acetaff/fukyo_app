@@ -12,6 +12,7 @@
         <span>❤</span>
         <% end %>
       <% end %>
+      <%= @favorite_count %>
 
       <% if user_signed_in? && current_user.id == @fukyo.user_id %>
       <ul class="more_list">

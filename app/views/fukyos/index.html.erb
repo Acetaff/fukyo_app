@@ -3,6 +3,11 @@
       <%= link_to fukyo_path(fukyo.id) do %>
         <%= image_tag fukyo.image.variant(resize: '500x500') %>
       <% end %>
+        
+
+      <div><span>❤</span>
+        <%= @favorite_count %>
+      </div>
         <h1>＃：<%= fukyo.title %></h1>
         <span class="name">
           <div>＃：<%= fukyo.f_text %></div>

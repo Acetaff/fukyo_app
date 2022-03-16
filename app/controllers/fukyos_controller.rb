@@ -5,6 +5,7 @@ class FukyosController < ApplicationController
 
   def index 
     @fukyos = Fukyo.includes(:user).order("created_at DESC")
+    @favorite_count = Favorite.where(fukyo_id: @fukyos).count
   end
   
   def new
@@ -23,6 +24,8 @@ class FukyosController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @fukyo.comments.includes(:user)
+    @user = @fukyo.user
+    @favorite_count = Favorite.where(fukyo_id: @fukyo.id).count
   end
 
   def edit
