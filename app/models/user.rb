@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many  :fukyos
+  has_many  :comments
 
   validates :fukyo_sya, presence: true
   validates :profile,   presence: true
