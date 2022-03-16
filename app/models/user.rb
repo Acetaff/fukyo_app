@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many  :fukyos
   has_many  :comments
+  has_many  :favorites
 
   validates :fukyo_sya, presence: true
   validates :profile,   presence: true
