@@ -1,7 +1,18 @@
 <div class="contents row">
   <%= image_tag @fukyo.image.variant(resize: '1000x1000') %>
+    
     <div class="more">
       <span><%= image_tag 'arrow_top.png' %></span>
+      <% if @fukyo.favorited?(current_user) %>
+        <%= link_to fukyo_favorite_path(@fukyo.id), method: :delete do %>
+        <span style="color:red;">❤︎</span>
+        <% end %>
+      <% else %>
+        <%= link_to fukyo_favorites_path(@fukyo.id), method: :post do %>
+        <span>❤</span>
+        <% end %>
+      <% end %>
+
       <% if user_signed_in? && current_user.id == @fukyo.user_id %>
       <ul class="more_list">
         <li>
@@ -13,10 +24,11 @@
       </ul>
       <% end %>
     </div>
-    <p>＃： <%= @fukyo.title %></p>
-    <span class="name">＃： <%= @fukyo.f_text %>
+
+    <p>＃お題： <%= @fukyo.title %></p>
+    <span class="name">＃紹介： <%= @fukyo.f_text %>
     </span>
-    <div>＃： <%= @fukyo.f_url%></div>
+    <div>＃URL： <%= @fukyo.f_url%></div>
   </div>
     <div class="container">
     <% if user_signed_in? %>
