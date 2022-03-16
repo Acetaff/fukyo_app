@@ -44,7 +44,7 @@
 ## Association
 
 - belongs_to :user
-- has_many :comment
+- has_many :comment, dependent: :destroy
 - has_many :fukyo_tags
 - has_many :tags, through: :fukyo_tags
 
