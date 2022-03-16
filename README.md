@@ -31,6 +31,18 @@
 - belongs_to :followed, class_name: "User"
 
 
+## Favorite テーブル
+
+| Colum      | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| user       | references | null: false, foreign_key: true |
+| fukyo      | references | null: false, foreign_key: true |
+
+## Association
+
+- belongs_to :user
+- belongs_to :fukyo
+
 
 ## fukyos テーブル
 
