@@ -20,10 +20,10 @@
 
 ## Relationship テーブル
 
-| Colum      | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| follower   | references | null: false, foreign_key: true |
-| followed   | references | null: false, foreign_key: true |
+| Colum       | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| follower_id | integer    | null: false                    |
+| followed_id | integer    | null: false                    |
 
 ## Association
 
