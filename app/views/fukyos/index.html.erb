@@ -3,7 +3,7 @@
       <%= link_to fukyo_path(fukyo.id) do %>
         <%= image_tag fukyo.image.variant(resize: '500x500') %>
       <% end %>
-        <p><strong><%= link_to fukyo.user.fukyo_sya, "#" %></strong></p>
+        <p><strong><%= link_to fukyo.user.fukyo_sya, "/user/#{fukyo.user_id}" %></strong></p>
         <div>＃お題：<%= fukyo.title %></div>
         <span class="name">
           <div>＃紹介：<%= fukyo.f_text %></div>
