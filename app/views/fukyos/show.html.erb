@@ -26,6 +26,8 @@
       </ul>
       <% end %>
     </div>
+    <% else %>
+      <span>❤<%= @favorite_count %></span>
     <% end %>
 
     <p><strong><%= link_to @fukyo.user.fukyo_sya, "/user/#{@fukyo.user_id}" %> </strong></p>
