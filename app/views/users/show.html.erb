@@ -2,7 +2,7 @@
   <p>”<%= @fukyo_sya %>さん”のFUKYO</p>
     <% @fukyos.each do |fukyo| %>
       <%= link_to fukyo_path(fukyo.id) do %>
-        <%= image_tag fukyo.image.variant(resize: '500x500') %>
+        <%= image_tag fukyo.image.variant(resize: '500x500'), class: :image_tag %>
       <% end %>
         <div>＃お題：<%= fukyo.title %></div>
         <span class="name">

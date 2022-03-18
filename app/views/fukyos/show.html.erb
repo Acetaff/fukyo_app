@@ -1,9 +1,8 @@
 <div class="contents row">
-  <%= image_tag @fukyo.image.variant(resize: '1000x1000') %>
+  <%= image_tag @fukyo.image.variant(resize: '1000x1000'), class: :image_tag %>
     
     <div class="more">
     <% if user_signed_in? %>
-      <span><%= image_tag 'arrow_top.png' %></span>
       <% if @fukyo.favorited?(current_user) %>
         <%= link_to fukyo_favorite_path(@fukyo.id), method: :delete do %>
         <span style="color:red;">❤︎</span>
@@ -31,10 +30,12 @@
     <% end %>
 
     <p><strong><%= link_to @fukyo.user.fukyo_sya, "/users/#{@fukyo.user_id}" %> </strong></p>
-    <p>＃お題： <%= @fukyo.title %></p>
-    <span class="name">＃紹介： <%= @fukyo.f_text %>
+
+    <h1><%= @fukyo.title %></h1>
+    <span class="name"><%= @fukyo.f_text %>
     </span>
-    <div>＃URL： <%= @fukyo.f_url%></div>
+    <div><%= @fukyo.f_url%></div>
+
     <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@fukyo, @comment], local: true) do |f| %>
