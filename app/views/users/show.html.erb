@@ -1,12 +1,20 @@
 <div class="contents row">
-  <p>”<%= @fukyo_sya %>さん”のFUKYO</p>
-    <% @fukyos.each do |fukyo| %>
-      <%= link_to fukyo_path(fukyo.id) do %>
-        <%= image_tag fukyo.image.variant(resize: '500x500'), class: :image_tag %>
-      <% end %>
-        <div>＃お題：<%= fukyo.title %></div>
-        <span class="name">
-          <div>＃紹介：<%= fukyo.f_text %></div>
-        </span>
+  <p>-<%= @fukyo_sya %>さんのFUKYO-</p>
+  
+  <% if current_user.following?(@user) %>
+    <p><%= link_to ">フォローを外す<", user_relationship_path(@user.id), method: :delete %></p>
+  <% else %>
+    <h1><%= link_to ">フォローする<", user_relationships_path(@user.id), method: :post %></h1>
+  <% end %>
+
+  <% @fukyos.each do |fukyo| %>
+    <%= link_to fukyo_path(fukyo.id) do %>
+      <%= image_tag fukyo.image.variant(resize: '500x500'), class: :image_tag %>
+    <% end %>
+
+      <div>＃お題：<%= fukyo.title %></div>
+      <span class="name">
+        <div>＃紹介：<%= fukyo.f_text %></div>
+      </span>
   <% end %>
 </div>
