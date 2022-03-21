@@ -1,5 +1,5 @@
 <div class="contents row">
-  <%= image_tag @fukyo.image.variant(resize: '1000x1000'), class: :image_tag %>
+  <%= image_tag @fukyo.image.variant(resize: '800x800'), class: :image_tag %>
     
     <div class="more">
     <% if user_signed_in? %>
@@ -16,11 +16,11 @@
 
       <% if current_user.id == @fukyo.user_id %>
       <ul class="more_list">
-        <li>
-          <%= link_to '>編集する', edit_fukyo_path(@fukyo.id), method: :get %>
+        <li class="edit-botn">
+          <%= link_to '編 集', edit_fukyo_path(@fukyo.id), method: :get %>
         </li>
-        <li>
-          <%= link_to '>削除する', fukyo_path(@fukyo.id), method: :delete %>
+        <li class="edit-botn">
+          <%= link_to '削 除', fukyo_path(@fukyo.id), method: :delete %>
         </li>
       </ul>
       <% end %>
@@ -29,11 +29,10 @@
       <span>❤<%= @favorite_count %></span>
     <% end %>
 
-    <p><strong><%= link_to @fukyo.user.fukyo_sya, "/users/#{@fukyo.user_id}" %> </strong></p>
+    <p><strong class="fukyo-sya"><%= link_to @fukyo.user.fukyo_sya, "/users/#{@fukyo.user_id}" %> </strong></p>
 
     <h1><%= @fukyo.title %></h1>
-    <span class="name"><%= @fukyo.f_text %>
-    </span>
+    <span class="name"><%= @fukyo.f_text %></span>
     <div><%= @fukyo.f_url%></div>
 
     <div class="container">

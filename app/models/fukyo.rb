@@ -11,4 +11,12 @@ class Fukyo < ApplicationRecord
   def favorited?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def self.search(search)
+    if search != ""
+      Fukyo.where('title LIKE(?)', "%#{search}%")
+    else
+      Fukyo.all
+    end
+  end
 end
