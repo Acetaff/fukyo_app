@@ -7,14 +7,36 @@
     <h1><%= link_to ">フォローする<", user_relationships_path(@user.id), method: :post %></h1>
   <% end %>
 
+  <% if @follows.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><%= @follows.user.fukyo_sya %></td>
+          <td>フォロー数: <%= @follows.followings.count %></td>
+          <td>フォロワー数: <%= @follows.followers.count %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% else %>
+    <p>※※　フォロー中のユーザーはいません　※※</p>
+  <% end %>
+
   <% @fukyos.each do |fukyo| %>
     <%= link_to fukyo_path(fukyo.id) do %>
       <%= image_tag fukyo.image.variant(resize: '500x500'), class: :image_tag %>
     <% end %>
 
-      <div>＃お題：<%= fukyo.title %></div>
+      <h1><%= fukyo.title %></h1>
       <span class="name">
-        <div>＃紹介：<%= fukyo.f_text %></div>
+        <div><%= fukyo.f_text %></div>
       </span>
   <% end %>
 </div>
