@@ -20,8 +20,8 @@ class User < ApplicationRecord
     relationships.find_by(followed_id: user_id).destroy
   end
 
-  def following?(current_user)
-    followings.include?(current_user)
+  def following?(user)
+    followings.include?(user)
   end
 
   validates :fukyo_sya, presence: true

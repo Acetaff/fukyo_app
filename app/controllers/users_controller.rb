@@ -3,6 +3,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @fukyo_sya = @user.fukyo_sya
     @fukyos = @user.fukyos
-    @follws = Relationship.includes(:user)
+    @users = User.all
   end
 end
