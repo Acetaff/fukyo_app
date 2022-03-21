@@ -3,6 +3,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @fukyo_sya = @user.fukyo_sya
     @fukyos = @user.fukyos
-    @users = User.all
   end
 end
