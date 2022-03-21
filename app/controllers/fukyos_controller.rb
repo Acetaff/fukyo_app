@@ -1,7 +1,7 @@
 class FukyosController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_fukyo, only: [:show, :edit, :update]
-  before_action :move_to_index, only: [:edit, :destroy]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @fukyos = Fukyo.includes(:user).order("created_at DESC")
@@ -42,6 +42,10 @@ class FukyosController < ApplicationController
     fukyo = Fukyo.find(params[:id])
     fukyo.destroy
     redirect_to root_path
+  end
+
+  def search
+    @fukyos = Fukyo.search(params[:keyword])
   end
 
   private
