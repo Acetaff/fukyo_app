@@ -14,7 +14,7 @@ class Fukyo < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Fukyo.where('text LIKE(?)', "%#{search}%")
+      Fukyo.where('title LIKE(?)', "%#{search}%")
     else
       Fukyo.all
     end
