@@ -1061,3 +1061,52 @@ footer p {
 .image_tag {
   margin-top: 50px;
 }
+
+.follow-botton a{
+  padding: 8px 20px;
+  font-size: 14px;
+  border: 2px solid #57C3E9;
+  margin-left: 10px;
+  color: #57C3E9;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.user-title {
+  margin: 20px 0px 20px 0px;
+  color: #57C3E9;
+  font-size: 20px;
+}
+
+.fukyo-title {
+  margin: 10px 0px;
+  font-size: 20px;
+  color: #57C3E9;
+}
+
+.fukyo-sya a{
+  font-size: 18px;
+  color: #57C3E9;
+}
+
+.more {
+  margin: 15px 0px;
+  font-size: 20px;
+}
+
+.edit-botn a{
+  color: #57C3E9;
+}
+
+.edit-botn {
+  padding: 8px 20px;
+  font-size: 14px;
+  border: 2px solid #57C3E9;
+  margin: 8px 0px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 3px;
+  display: inline-block;
+}

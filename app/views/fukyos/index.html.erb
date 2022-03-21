@@ -4,8 +4,8 @@
         <%= image_tag fukyo.image.variant(resize: '500x500'), class: :image_tag %>
       <% end %>
         <span class="name">
-        <p><strong><%= link_to fukyo.user.fukyo_sya, "/users/#{fukyo.user[:id]}" %></strong></p>
-        <h2><%= fukyo.title %></h2>
+        <p><strong class="fukyo-sya"><%= link_to fukyo.user.fukyo_sya, "/users/#{fukyo.user[:id]}" %></strong></p>
+        <h1><%= fukyo.title %></h1>
         </span>
   <% end %>
 </div>
