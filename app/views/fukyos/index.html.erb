@@ -1,11 +1,16 @@
+<%= form_with(url: "#", local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+
 <div class="contents row">
-    <% @fukyos.each do |fukyo| %>
-      <%= link_to fukyo_path(fukyo.id) do %>
-        <%= image_tag fukyo.image.variant(resize: '500x500'), class: :image_tag %>
-      <% end %>
-        <span class="name">
-        <p><strong class="fukyo-sya"><%= link_to fukyo.user.fukyo_sya, "/users/#{fukyo.user[:id]}" %></strong></p>
-        <h1><%= fukyo.title %></h1>
-        </span>
+  <% @fukyos.each do |fukyo| %>
+    <%= link_to fukyo_path(fukyo.id) do %>
+      <%= image_tag fukyo.image.variant(resize: '500x500'), class: :image_tag %>
+    <% end %>
+      <span class="name">
+      <p><strong class="fukyo-sya"><%= link_to fukyo.user.fukyo_sya, "/users/#{fukyo.user[:id]}" %></strong></p>
+      <h1><%= fukyo.title %></h1>
+      </span>
   <% end %>
 </div>
